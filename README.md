@@ -1,8 +1,6 @@
 # CPSC-131-Project-4
 Hash table with usernames and passwords
 
-Group members:
+Group member(s):
 
-Ada Lovelace adalovelace@csu.fullerton.edu
-
-Charles Babbage charlesbab@csu.fullerton.edu
+Benson Lee - blee71@csu.fullerton.edu
