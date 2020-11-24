@@ -27,11 +27,17 @@ UserLogin::UserLogin() {
 }
 
 void UserLogin::readIn(const string& filename) {
-  // TO DO
+  std::ifstream inFile(filename);
+  std::string username;
+  std::string password;
+
+  while (inFile >> username >> password) {
+    table.insert(std::make_pair(username, password));
+  }
 }
 
 size_t UserLogin::numberOfUsers() {
-  // TO DO
+  return table.size();
 }
 
 string UserLogin::passWordCheck(const string& userName) {
@@ -39,11 +45,11 @@ string UserLogin::passWordCheck(const string& userName) {
 }
 
 size_t UserLogin::wordBucketIdMethod1(const string& userName) {
-  // TO DO
+  return table.hash_function()(userName) % table.bucket_count();
 }
 
 size_t UserLogin::wordBucketIdMethod2(const string& userName) {
-  // TO DO
+  return table.bucket(userName);
 }
 
 bool UserLogin::validateUser(const string& userName) {
