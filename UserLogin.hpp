@@ -41,7 +41,12 @@ size_t UserLogin::numberOfUsers() {
 }
 
 string UserLogin::passWordCheck(const string& userName) {
-  // TO DO
+  auto it = table.find(userName);
+
+  while (it != table.end()) {
+    return it->second;
+  }
+  return "Non-existent User";
 }
 
 size_t UserLogin::wordBucketIdMethod1(const string& userName) {
@@ -53,9 +58,19 @@ size_t UserLogin::wordBucketIdMethod2(const string& userName) {
 }
 
 bool UserLogin::validateUser(const string& userName) {
-  // TO DO
+  auto it = table.find(userName);
+
+  if (it != table.end()) {
+    return true;
+  }
+  return false;
 }
 
 bool UserLogin::authenticateUser(const string& userName, const string& passWord) {
-  // TO DO
+  auto authUser = table.find(userName);
+
+  if (authUser == table.end()) {
+    return false;
+  }
+  return authUser->second == passWord;
 }
